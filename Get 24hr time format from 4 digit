@@ -1,0 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication36;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+
+/**
+ *Get Max time in 24hr format
+ */
+public class JavaApplication36 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        LinkedList< Integer> ll = new LinkedList<Integer>();
+int a[]= {1,5,7,8};
+
+for(int i = 0 ; i < a.length; i++)
+{
+    for(int j = 0 ; j < a.length; j++)
+    {
+        for(int k= 0 ; k< a.length; k++)
+        {
+            for(int l = 0 ; l < a.length; l++){
+                {
+                    if(i!= j && j!=k && k!=l && l!=i && i!=k && j!=l){
+                       // int temp = a[i]* 1000 + a[j]*100 +a[k]*10+ a[l];
+                       { if(a[i] * 10 + a[j]< 24 && a[k]* 10 + a[l]< 60){
+                         ll.add(a[i]* 1000 + a[j]*100+ +(a[k]*10+ a[l]));
+ 
+                        }
+                        
+                    }
+                }
+            }
+
+        }
+    }
+
+} 
+}
+System.out.println(ll.get(ll.size()-1));
+    }
+}
+    
+    
+
