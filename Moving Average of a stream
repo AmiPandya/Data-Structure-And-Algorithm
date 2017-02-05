@@ -1,0 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication23;
+
+import java.util.Scanner;
+ 
+public class JavaApplication23 {
+
+    public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in);
+  String S = sc.nextLine();
+  int arr[] = new int[S.length()];
+  int max = arr[0];
+  for(int i = 0; i < S.length()-1 ; i++)
+  { char val1 = (S.charAt(i));
+   char val2 = (S.charAt(i+1));
+   int avg = ((int) val1 + (int) val2)/2;
+   String avg1 = Integer.toString(avg);
+  //
+  //arr[i] = Integer.parseInt(S.substring(0,i) + avg.toString()+ S.substring(i+2,S.length()));
+  String val = S.substring(0,i)+ avg + S.substring(i+1,S.length());
+  arr[i]= Integer.parseInt(val);
+  if(max < arr[i])
+          { max = arr[i];
+              
+                              
+  }
+  }
+  System.out.println(max);
+                            }
+                           
+      
+    }
+    
+
