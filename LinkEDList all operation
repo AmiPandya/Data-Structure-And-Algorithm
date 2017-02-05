@@ -1,0 +1,172 @@
+/*
+*
+*  Problem 1: Node class
+*
+*  Prompt:    Create a Node class
+*
+*             The Node class should contain the following public properties:
+*
+*                 value:   integer value
+*                  next:   pointer to another node (initially null)
+*
+*               Example:   var sample1 = new Node(1)
+*                          sample1.value     // 1
+*                          sample1.next      // null
+*
+*
+*  Problem 2: LinkedList class
+*
+*  Prompt:    Create a LinkedList class
+*
+*             The LinkedList class should contain the following public
+*             properties:
+*
+*                length:   The number of nodes in the linked list
+*                  head:   A pointer to the head node
+*                  tail:   A pointer to the tail node
+*
+*              The LinkedList class should also contain the following public
+*              methods:
+*
+*                append:   A method that appends a value to the end of the
+*                          LinkedList.
+*
+*                          Input:     int
+*                          Output:    void
+*
+*                insert:   A method that inserts an integer value at a set
+*                          index in the LinkedList (assume head index is 0).
+*
+*                          Input:     int value, int index
+*                          Output:    void
+*
+*                delete:   A method that removes a node at a specified index.
+*
+*                          Input:     int index
+*                          Output:    void
+*
+*              contains:   A method that checks to see if a value is contained
+*                          in the list.
+*
+*                          Input:     int value
+*                          Output:    boolean
+*
+*    What are the time and auxiliary space complexity of the various
+*    methods?
+*
+*/
+
+import java.util.*;
+
+class Node {
+    int value;
+    Node next;
+    Node head;
+Node()
+{
+    
+}
+
+    Node(int value)
+    {
+        this.value = value;
+    }
+}
+
+
+class LinkedList {
+
+Node head = null;
+int length=0;
+  // Time Complexity: O(1)
+  // Auxiliary Space Complexity:O(1) 
+  public void append(int value){
+      length++;
+             Node new1 = new Node(value);
+        new1.next = head;
+        head = new1;
+
+
+  }
+
+
+  // Time Complexity:O(n)
+  // Auxiliary Space Complexity: O(1)
+  public void insert(int value, int index){
+      length++;
+      Node new_node = new Node(value);
+      Node p1 = head;
+      int counter=1;
+      while(counter!=index-1)
+      {p1= p1.next;
+      counter++;
+      }
+      new_node.next = p1.next;
+      p1.next= new_node;
+       
+  }
+
+
+  
+
+
+  // Time Complexity: O(n)
+  // Auxiliary Space Complexity: O(1)
+ public void delete(int index){
+      length--;
+            Node p = head;
+      Node p2 = head;
+      int counter= 1;
+      while(counter!= index-1)
+      {
+          p= p.next;
+          p2= p.next;
+          counter++;
+      }
+        p.next = p2.next;
+      }
+
+
+  
+
+
+  // Time Complexity: O(n)
+  // Auxiliary Space Complexity: O(1)
+  public boolean contains(int value){
+      Node curr = head;
+      while(curr!=null){
+          if(curr.value == value)
+              return true;
+      }
+      curr = curr.next;
+      return false;
+  }
+          
+    
+
+  
+}
+
+
+class Main {
+  public static void main(String[] args) {
+    Node newNode = new Node();
+    System.out.println(newNode.value);
+    System.out.println(newNode.next);
+
+    LinkedList newList = new LinkedList();
+    newList.append(5);
+    newList.append(10);
+    newList.append(15);
+    newList.insert(12, 2);
+   newList.insert(20, 5);
+   newList.delete(2);
+   newList.delete(3);
+   newList.insert(21,2);
+    Node current = newList.head;
+    for(int i = 0; i < newList.length; i++){
+      System.out.print(current.value + " ");
+      current = current.next;
+    }
+  }
+}
