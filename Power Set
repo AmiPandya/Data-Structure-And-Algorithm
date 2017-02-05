@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package powerset;
+                               
+*                                                                   
+* Prompt:   Given a set S, return the power set P(S), which is        
+*           a set of all subsets of S.                                
+*                                                                   
+* Input:    A String                                                  
+* Output:   An Array of Strings representing the power set of the input
+*                                                                   
+* Example:  S = "abc", P(S) = ['', 'a', 'b','c','ab','ac','bc','abc']
+*                                                                   
+* Note:     The input string will not contain duplicate characters
+*           The letters in the subset string must be in the same order
+*           as the original input.
+*/
+
+
+import java.util.*;
+import java.util.ArrayList;
+
+class Main {
+  public static void main(String[] args) {
+    System.out.println(PowerSet.compute("abc"));
+  }
+
+}
+
+class PowerSet {
+  // your work here
+  public static List<String> results; 
+  private static String input;
+  
+  public static List<String> compute(String str) { 
+      for(int i = 0 ; i< Math.pow(2, str.length()-1); i++){
+          String x = Integer.toBinaryString(i);
+          String res =traverse(str,x);
+          results.add(res);
+          
+      }
+    return results;
+  }
+  
+  private static String traverse(String buildUp, String depth) {
+      char arr1[] = buildUp.toCharArray();
+      char arr2[] = depth.toCharArray();
+      StringBuilder output = new StringBuilder();
+      int sum = 0;
+      for(int i = 0 ; i < arr2.length;i++){
+          if(arr2[i]==1){
+              output.append(arr1[i]);
+              sum++;
+          }
+      }
+      if(sum == 0){
+        output.append("");
+        
+      }
+      return output.toString();
+      
+
+  }
+}
+
+
+
+
