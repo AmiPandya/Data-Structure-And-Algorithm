@@ -1,0 +1,25 @@
+import java.util.Arrays;
+public class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> ll = new ArrayList<Integer>();
+        Arrays.sort(nums);
+        Set<Integer> mySet = new HashSet<Integer>();
+        for(int i = 0 ; i < nums.length; i++)
+        {
+            mySet.add(nums[i]);
+        }
+        int counter= nums.length;
+while(counter>0){
+   
+    if(!mySet.contains(counter))
+    {
+        ll.add(counter);
+    }
+    counter--;
+}
+
+
+
+     return ll;
+ }
+}
