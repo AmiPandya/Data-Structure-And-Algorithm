@@ -1,0 +1,48 @@
+public class ArrayAdditionJava {
+    
+    public static int[] ArrayAdd(int a[] , int b[]){
+        int len1 = a.length;
+        int len2 = b.length;
+        int ans[] ;
+        if( a  == b ){
+            ans = new int[len1+1];
+        }
+        else{
+        int len = Math.max(len1, len2);
+        ans = new int[len+1];
+        
+    }
+        int carry = 0;
+        for(int i = ans.length-1 ; i > 0 ; i--){
+            ans[i] = a[i-1] + b[i-1] + carry;
+            if(ans[i]> 9){
+                ans[i]= ans[i]% 10;
+                carry = 1;
+            }
+            else{
+                carry = 0;
+            }
+        }
+        ans[0] = carry ;
+        
+        return ans;
+    }
+public static     void printarry( int ans[])
+    {
+        
+        for(int j = 0 ; j < ans.length ; j++){
+           System.out.println(ans[j]); 
+        }
+    }
+    
+    
+
+    public static void main(String[] args) {
+        int a[]= {9,9,9};
+        int b[] = {9,9,9};
+        int ans1[] = ArrayAdd(a, b);
+        printarry(ans1);
+        
+    }
+    
+}
