@@ -1,0 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package twosum;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class TwoSum {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int a[] = { 1,2,3,4,5};
+        boolean ans = check_sum(a ,5);
+        System.out.println(ans);
+        // TODO code application logic here
+    }
+
+    private static boolean check_sum(int[] a , int sum) {
+        Map<Integer ,Integer> mm = new HashMap<Integer , Integer>();
+        for(int i = 0 ; i < a.length ; i++){
+            mm.put(a[i] ,1);
+           }
+        
+        for(int j = 0 ; j < a.length  ; j++){
+            int val = sum - a[j];
+            if(mm.containsKey(val)){
+                System.out.println(val + " "+ a[j]);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+}
