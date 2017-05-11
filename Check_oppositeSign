@@ -1,0 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package oppositesign;
+
+public class OppositeSign {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        int x = 5;
+        int y = 5;
+        boolean ans =checkSign(x,y);
+        System.out.println(ans);
+        // TODO code application logic here
+    }
+
+    private static boolean  checkSign(int x, int y) {
+           return ((x ^ y) < 0);
+        
+    }
+    
+}
